@@ -20,7 +20,9 @@ module JasmineRails
     def jasmine_js_files
       files = Jasmine::Core.js_files
       if params[:console]
-        files << 'jasmine-console-shims.js'
+	# This shim isn't playing well with es5-shim and react, so I'm removing it
+	# @jbaudanza - Jan 31, 2014
+        #files << 'jasmine-console-shims.js'
         files << 'jasmine-console-reporter.js'
       end
       files << 'jasmine-boot.js'
